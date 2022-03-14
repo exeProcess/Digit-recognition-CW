@@ -54,9 +54,16 @@ public class NeuralNetwork {
 	public void setHiddenLayer(double[][] hiddenLayer) {
 		this.hiddenLayer = hiddenLayer;
 	}
-	/*public double summation() {
-		
-	}*/
+	
+	public void feedForward(String[] dataSample) {
+		double summation = 0;
+		for(int i = 0; i < hiddenLayer.length; i++){
+			for(int j = 0; j < hiddenLayer[i].length;i++){
+				summation += (int) (Integer.parseInt(dataSample[j]) * hiddenLayer[i][j]);
+			}
+			hiddenLayerPerceptronValues[i] = (1 / (1+Math.pow(2.7, -summation)));
+		}
+	}
 	
 	
 }
